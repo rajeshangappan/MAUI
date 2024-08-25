@@ -37,4 +37,4 @@ Maui.TabView Features
 ```
 Sample Link : [TabviewSample](https://github.com/rajeshangappan/MAUI/tree/main/BTMSample)
 # Output
-![TabView](https://github.com/rajeshangappan/MAUI/tree/main/Maui.TabView/MauiTabview.gif)
+![TabViewResult](https://github.com/rajeshangappan/MAUI/blob/main/Maui.TabView/MauiTabview.gif?raw=true)
