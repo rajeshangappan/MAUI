@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTMSample", "BTMSample.csproj", "{52DB9D2D-C203-4463-93AD-0D4ACF524D4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.TabView", "..\Maui.TabView\Maui.TabView.csproj", "{3D87592C-6353-4F52-80E7-42B4A9FB530C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52DB9D2D-C203-4463-93AD-0D4ACF524D4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52DB9D2D-C203-4463-93AD-0D4ACF524D4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52DB9D2D-C203-4463-93AD-0D4ACF524D4F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{52DB9D2D-C203-4463-93AD-0D4ACF524D4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52DB9D2D-C203-4463-93AD-0D4ACF524D4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52DB9D2D-C203-4463-93AD-0D4ACF524D4F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3D87592C-6353-4F52-80E7-42B4A9FB530C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D87592C-6353-4F52-80E7-42B4A9FB530C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D87592C-6353-4F52-80E7-42B4A9FB530C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D87592C-6353-4F52-80E7-42B4A9FB530C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D05D954-F2EA-4C74-802C-4968197A88DB}
+	EndGlobalSection
+EndGlobal

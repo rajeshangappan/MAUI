@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BTMSample.CustomTabView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:Maui.TabView.Control;assembly=Maui.TabView"
+    xmlns:local="clr-namespace:BTMSample"
+    xmlns:tabview="clr-namespace:Maui.TabView;assembly=Maui.TabView"
+    Title="CustomTabView">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Label Text="TAB ABOVE CONTENT" />
+
+
+        <Button
+            Clicked="Button_Clicked"
+            HorizontalOptions="Center"
+            Text="Select Next Tab" />
+
+        <StackLayout
+            x:Name="testing"
+            Margin="0"
+            Padding="0"
+            HorizontalOptions="FillAndExpand"
+            Spacing="0"
+            VerticalOptions="FillAndExpand">
+
+            <control:MauiTabControl
+                x:Name="Tabcomponent"
+                Margin="0"
+                Padding="0"
+                HeaderColor="LightSkyBlue"
+                HeaderHeight="50"
+                HorizontalOptions="FillAndExpand"
+                Position="Top"
+                SelectedIndex="{Binding Index}"
+                SelectionColor="#6B4BD7"
+                TabClicked="Tab_TabClicked"
+                VerticalOptions="FillAndExpand">
+                <control:MauiTabControl.MauiTabPages>
+                    <control:MauiTabPage>
+                        <control:MauiTabPage.Header>
+                            <control:MauiTabHeader Title="Tab1" />
+                        </control:MauiTabPage.Header>
+                        <control:MauiTabPage.CustomContentPage>
+                            <local:Tab1ContentPage />
+                        </control:MauiTabPage.CustomContentPage>
+                    </control:MauiTabPage>
+                    <control:MauiTabPage>
+                        <control:MauiTabPage.Header>
+                            <control:MauiTabHeader Title="Tab2" />
+                        </control:MauiTabPage.Header>
+                        <control:MauiTabPage.Content>
+                            <StackLayout>
+                                <Label
+                                    HorizontalOptions="CenterAndExpand"
+                                    Text="This Page Displays Tab2 Content"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </control:MauiTabPage.Content>
+                    </control:MauiTabPage>
+                    <control:MauiTabPage>
+                        <control:MauiTabPage.Header>
+                            <control:MauiTabHeader>
+                                <VerticalStackLayout Padding="5">
+                                    <Image
+                                        HeightRequest="20"
+                                        HorizontalOptions="Center"
+                                        Source="user.png" />
+                                    <Label HorizontalOptions="Center" Text="Tab3" />
+                                </VerticalStackLayout>
+                            </control:MauiTabHeader>
+                        </control:MauiTabPage.Header>
+                        <control:MauiTabPage.Content>
+                            <StackLayout>
+                                <Label
+                                    HorizontalOptions="CenterAndExpand"
+                                    Text="This Page Displays Tab3 Content"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </control:MauiTabPage.Content>
+                    </control:MauiTabPage>
+                    <control:MauiTabPage>
+                        <control:MauiTabPage.Header>
+                            <control:MauiTabHeader Title="Tab4" />
+                        </control:MauiTabPage.Header>
+                        <control:MauiTabPage.Content>
+                            <StackLayout>
+                                <Label
+                                    HorizontalOptions="CenterAndExpand"
+                                    Text="This Page Displays Tab4 Content"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </control:MauiTabPage.Content>
+                    </control:MauiTabPage>
+                </control:MauiTabControl.MauiTabPages>
+
+            </control:MauiTabControl>
+        </StackLayout>
+        <Label Text="TAB Bottom CONTENT" />
+    </StackLayout>
+</ContentPage>
