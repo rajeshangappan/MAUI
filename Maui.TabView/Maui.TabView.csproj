@@ -16,11 +16,41 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<AssemblyName>Custom.Maui.Tabview</AssemblyName>
+		<Title>Maui Tab view</Title>
+		<Description>Customized tabview control</Description>
+		<Copyright>MIT</Copyright>
+		<PackageProjectUrl>https://github.com/rajeshangappan/MAUI/tree/main/Maui.TabView</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/rajeshangappan/MAUI/tree/main/Maui.TabView</RepositoryUrl>
+		<PackageTags>MAUI,Tabview,tabbedpage,control</PackageTags>
+		<PackageReleaseNotes>Create the Customized tabbed page or view using Maui.Tabview control.</PackageReleaseNotes>
+		<PackageLicenseFile>License.txt</PackageLicenseFile>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="License.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="License.txt">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 
 </Project>
