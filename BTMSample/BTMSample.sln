@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BTMSample", "BTMSample.csproj", "{52DB9D2D-C203-4463-93AD-0D4ACF524D4F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui.TabView", "..\Maui.TabView\Maui.TabView.csproj", "{C8D82ADF-C85B-4EE0-BF05-E5143981B0AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{52DB9D2D-C203-4463-93AD-0D4ACF524D4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52DB9D2D-C203-4463-93AD-0D4ACF524D4F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52DB9D2D-C203-4463-93AD-0D4ACF524D4F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C8D82ADF-C85B-4EE0-BF05-E5143981B0AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8D82ADF-C85B-4EE0-BF05-E5143981B0AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8D82ADF-C85B-4EE0-BF05-E5143981B0AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8D82ADF-C85B-4EE0-BF05-E5143981B0AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
