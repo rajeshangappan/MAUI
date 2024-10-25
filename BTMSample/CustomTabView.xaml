@@ -45,31 +45,16 @@
                 <control:MauiTabControl.MauiTabPages>
                     <control:MauiTabPage>
                         <control:MauiTabPage.Header>
-                            <control:MauiTabHeader x:Name="ParentStack1" StrokeThickness="0">
+                            <control:MauiTabHeader x:Name="header1">
                                 <VerticalStackLayout Padding="5">
                                     <Image
                                         HeightRequest="20"
                                         HorizontalOptions="Center"
-                                        Source="home32.png">
-                                        <Image.Triggers>
-                                            <DataTrigger
-                                                Binding="{Binding Source={x:Reference ParentStack1}, Path=IsSelected}"
-                                                TargetType="Image"
-                                                Value="True">
-                                                <Setter Property="Source" Value="homepink.png" />
-                                            </DataTrigger>
-                                            <DataTrigger
-                                                Binding="{Binding Source={x:Reference ParentStack1}, Path=IsSelected}"
-                                                TargetType="Image"
-                                                Value="False">
-                                                <Setter Property="Source" Value="home32.png" />
-                                            </DataTrigger>
-                                        </Image.Triggers>
-                                    </Image>
+                                        Source="{Binding Source={x:Reference header1}, Path=IsSelected, Converter={StaticResource SelectionConverter}, ConverterParameter='img'}" />
                                     <Label
                                         HorizontalOptions="Center"
                                         Text="Tab1"
-                                        TextColor="{Binding Source={x:Reference ParentStack1}, Path=IsSelected, Converter={StaticResource SelectionConverter}}" />
+                                        TextColor="{Binding Source={x:Reference header1}, Path=IsSelected, Converter={StaticResource SelectionConverter}}" />
                                 </VerticalStackLayout>
                             </control:MauiTabHeader>
                         </control:MauiTabPage.Header>
@@ -79,105 +64,75 @@
                     </control:MauiTabPage>
                     <control:MauiTabPage>
                         <control:MauiTabPage.Header>
-                            <control:MauiTabHeader x:Name="ParentStack2" StrokeThickness="0">
+                            <control:MauiTabHeader x:Name="header2">
                                 <VerticalStackLayout Padding="5">
                                     <Image
                                         HeightRequest="20"
                                         HorizontalOptions="Center"
-                                        Source="home32.png">
-                                        <Image.Triggers>
-                                            <DataTrigger
-                                                Binding="{Binding Source={x:Reference ParentStack2}, Path=IsSelected}"
-                                                TargetType="Image"
-                                                Value="True">
-                                                <Setter Property="Source" Value="homepink.png" />
-                                            </DataTrigger>
-                                            <DataTrigger
-                                                Binding="{Binding Source={x:Reference ParentStack2}, Path=IsSelected}"
-                                                TargetType="Image"
-                                                Value="False">
-                                                <Setter Property="Source" Value="home32.png" />
-                                            </DataTrigger>
-                                        </Image.Triggers>
-                                    </Image>
+                                        Source="{Binding Source={x:Reference header2}, Path=IsSelected, Converter={StaticResource SelectionConverter}, ConverterParameter='img'}" />
                                     <Label
                                         HorizontalOptions="Center"
                                         Text="Tab2"
-                                        TextColor="{Binding Source={x:Reference ParentStack2}, Path=IsSelected, Converter={StaticResource SelectionConverter}}" />
+                                        TextColor="{Binding Source={x:Reference header2}, Path=IsSelected, Converter={StaticResource SelectionConverter}}" />
                                 </VerticalStackLayout>
                             </control:MauiTabHeader>
                         </control:MauiTabPage.Header>
-                        <control:MauiTabPage.CustomContentPage>
-                            <local:Tab1ContentPage />
-                        </control:MauiTabPage.CustomContentPage>
+                        <control:MauiTabPage.Content>
+                            <VerticalStackLayout VerticalOptions="Center">
+                                <Label
+                                    HorizontalOptions="Center"
+                                    Text="Tab2"
+                                    VerticalOptions="Center" />
+                            </VerticalStackLayout>
+                        </control:MauiTabPage.Content>
                     </control:MauiTabPage>
                     <control:MauiTabPage>
                         <control:MauiTabPage.Header>
-                            <control:MauiTabHeader x:Name="ParentStack3" StrokeThickness="0">
+                            <control:MauiTabHeader x:Name="header3">
                                 <VerticalStackLayout Padding="5">
                                     <Image
                                         HeightRequest="20"
                                         HorizontalOptions="Center"
-                                        Source="home32.png">
-                                        <Image.Triggers>
-                                            <DataTrigger
-                                                Binding="{Binding Source={x:Reference ParentStack3}, Path=IsSelected}"
-                                                TargetType="Image"
-                                                Value="True">
-                                                <Setter Property="Source" Value="homepink.png" />
-                                            </DataTrigger>
-                                            <DataTrigger
-                                                Binding="{Binding Source={x:Reference ParentStack3}, Path=IsSelected}"
-                                                TargetType="Image"
-                                                Value="False">
-                                                <Setter Property="Source" Value="home32.png" />
-                                            </DataTrigger>
-                                        </Image.Triggers>
-                                    </Image>
-                                    <Label
-                                        HorizontalOptions="Center"
-                                        Text="Tab1"
-                                        TextColor="{Binding Source={x:Reference ParentStack3}, Path=IsSelected, Converter={StaticResource SelectionConverter}}" />
-                                </VerticalStackLayout>
-                            </control:MauiTabHeader>
-                        </control:MauiTabPage.Header>
-                        <control:MauiTabPage.CustomContentPage>
-                            <local:Tab1ContentPage />
-                        </control:MauiTabPage.CustomContentPage>
-                    </control:MauiTabPage>
-                    <control:MauiTabPage>
-                        <control:MauiTabPage.Header>
-                            <control:MauiTabHeader x:Name="ParentStack4" StrokeThickness="0">
-                                <VerticalStackLayout Padding="5">
-                                    <Image
-                                        HeightRequest="20"
-                                        HorizontalOptions="Center"
-                                        Source="home32.png">
-                                        <Image.Triggers>
-                                            <DataTrigger
-                                                Binding="{Binding Source={x:Reference ParentStack4}, Path=IsSelected}"
-                                                TargetType="Image"
-                                                Value="True">
-                                                <Setter Property="Source" Value="homepink.png" />
-                                            </DataTrigger>
-                                            <DataTrigger
-                                                Binding="{Binding Source={x:Reference ParentStack4}, Path=IsSelected}"
-                                                TargetType="Image"
-                                                Value="False">
-                                                <Setter Property="Source" Value="home32.png" />
-                                            </DataTrigger>
-                                        </Image.Triggers>
-                                    </Image>
+                                        Source="{Binding Source={x:Reference header3}, Path=IsSelected, Converter={StaticResource SelectionConverter}, ConverterParameter='img'}" />
                                     <Label
                                         HorizontalOptions="Center"
                                         Text="Tab3"
-                                        TextColor="{Binding Source={x:Reference ParentStack4}, Path=IsSelected, Converter={StaticResource SelectionConverter}}" />
+                                        TextColor="{Binding Source={x:Reference header3}, Path=IsSelected, Converter={StaticResource SelectionConverter}}" />
                                 </VerticalStackLayout>
                             </control:MauiTabHeader>
                         </control:MauiTabPage.Header>
-                        <control:MauiTabPage.CustomContentPage>
-                            <local:Tab1ContentPage />
-                        </control:MauiTabPage.CustomContentPage>
+                        <control:MauiTabPage.Content>
+                            <VerticalStackLayout VerticalOptions="Center">
+                                <Label
+                                    HorizontalOptions="Center"
+                                    Text="Tab3"
+                                    VerticalOptions="Center" />
+                            </VerticalStackLayout>
+                        </control:MauiTabPage.Content>
+                    </control:MauiTabPage>
+                    <control:MauiTabPage>
+                        <control:MauiTabPage.Header>
+                            <control:MauiTabHeader x:Name="header4">
+                                <VerticalStackLayout Padding="5">
+                                    <Image
+                                        HeightRequest="20"
+                                        HorizontalOptions="Center"
+                                        Source="{Binding Source={x:Reference header4}, Path=IsSelected, Converter={StaticResource SelectionConverter}, ConverterParameter='img'}" />
+                                    <Label
+                                        HorizontalOptions="Center"
+                                        Text="Tab4"
+                                        TextColor="{Binding Source={x:Reference header4}, Path=IsSelected, Converter={StaticResource SelectionConverter}}" />
+                                </VerticalStackLayout>
+                            </control:MauiTabHeader>
+                        </control:MauiTabPage.Header>
+                        <control:MauiTabPage.Content>
+                            <VerticalStackLayout VerticalOptions="Center">
+                                <Label
+                                    HorizontalOptions="Center"
+                                    Text="Tab4"
+                                    VerticalOptions="Center" />
+                            </VerticalStackLayout>
+                        </control:MauiTabPage.Content>
                     </control:MauiTabPage>
                 </control:MauiTabControl.MauiTabPages>
 
