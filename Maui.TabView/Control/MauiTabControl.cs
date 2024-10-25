@@ -28,6 +28,11 @@ namespace Maui.TabView.Control
         public static BindableProperty TabbedPagesProperty = BindableProperty.Create(nameof(MauiTabPages), typeof(ObservableCollection<MauiTabPage>), typeof(MauiTabControl), null, BindingMode.TwoWay);
 
         /// <summary>
+        /// Defines the HeaderSelectionBgColorProperty.
+        /// </summary>
+        public static BindableProperty HeaderSelectionBgColorProperty = BindableProperty.Create(nameof(MauiTabPages), typeof(Color), typeof(MauiTabControl), Colors.White, BindingMode.TwoWay);
+
+        /// <summary>
         /// Defines the m_Parent.
         /// </summary>
         internal Grid m_Parent;
@@ -101,6 +106,11 @@ namespace Maui.TabView.Control
         public int SelectedIndex { get => (int)GetValue(SelectedIndexProperty); set => SetValue(SelectedIndexProperty, value); }
 
         /// <summary>
+        /// Gets or sets the SelectedIndex.
+        /// </summary>
+        public Color HeaderSelectionBgColor { get => (Color)GetValue(HeaderSelectionBgColorProperty); set => SetValue(HeaderSelectionBgColorProperty, value); }
+
+        /// <summary>
         /// Gets or sets the SelectionColor.
         /// </summary>
         public Color SelectionColor { get; set; } = Color.FromRgb(102, 153, 255);
@@ -109,6 +119,8 @@ namespace Maui.TabView.Control
         /// Gets or sets the SelectorHeight.
         /// </summary>
         public int SelectorHeight { get; set; } = 8;
+
+        public bool ShowSelectionArea { get; set; } = true;
 
         /// <summary>
         /// Gets or sets the MauiTabPages.
@@ -227,27 +239,54 @@ namespace Maui.TabView.Control
         {
             if (Position == Position.Top)
             {
-                m_Parent.RowDefinitions = new RowDefinitionCollection
+                if (ShowSelectionArea)
                 {
-                new RowDefinition { Height = HeaderHeight == 0 ? GridLength.Auto : new GridLength(HeaderHeight, GridUnitType.Absolute) },
-                new RowDefinition { Height = new GridLength(8, GridUnitType.Absolute) },
-                new RowDefinition { Height = GridLength.Star}
-                };
-                m_Parent.Add(m_Header, 0, 0);
-                m_Parent.Add(m_Selection, 0, 1);
-                m_Parent.Add(XFTabBody, 0, 2);
+                    m_Parent.RowDefinitions = new RowDefinitionCollection
+                    {
+                        new RowDefinition { Height = HeaderHeight == 0 ? GridLength.Auto : new GridLength(HeaderHeight, GridUnitType.Absolute) },
+                        new RowDefinition { Height = new GridLength(8, GridUnitType.Absolute) },
+                        new RowDefinition { Height = GridLength.Star}
+                    };
+                    m_Parent.Add(m_Header, 0, 0);
+                    m_Parent.Add(m_Selection, 0, 1);
+                    m_Parent.Add(XFTabBody, 0, 2);
+                }
+                else
+                {
+                    m_Parent.RowDefinitions = new RowDefinitionCollection
+                    {
+                        new RowDefinition { Height = HeaderHeight == 0 ? GridLength.Auto : new GridLength(HeaderHeight, GridUnitType.Absolute) },
+                        new RowDefinition { Height = GridLength.Star}
+                    };
+                    m_Parent.Add(m_Header, 0, 0);
+                    m_Parent.Add(XFTabBody, 0, 1);
+                }
+
             }
             else
             {
-                m_Parent.RowDefinitions = new RowDefinitionCollection
+                if (ShowSelectionArea)
                 {
-                new RowDefinition { Height = GridLength.Star},
-                new RowDefinition { Height = new GridLength(8)},
-                new RowDefinition { Height = new GridLength(HeaderHeight) }
-                };
-                m_Parent.Add(XFTabBody, 0, 0);
-                m_Parent.Add(m_Selection, 0, 1);
-                m_Parent.Add(m_Header, 0, 2);
+                    m_Parent.RowDefinitions = new RowDefinitionCollection
+                    {
+                        new RowDefinition { Height = GridLength.Star},
+                        new RowDefinition { Height = new GridLength(8)},
+                        new RowDefinition { Height = new GridLength(HeaderHeight) }
+                    };
+                    m_Parent.Add(XFTabBody, 0, 0);
+                    m_Parent.Add(m_Selection, 0, 1);
+                    m_Parent.Add(m_Header, 0, 2);
+                }
+                else
+                {
+                    m_Parent.RowDefinitions = new RowDefinitionCollection
+                    {
+                        new RowDefinition { Height = GridLength.Star},
+                        new RowDefinition { Height = new GridLength(HeaderHeight) }
+                    };
+                    m_Parent.Add(XFTabBody, 0, 0);
+                    m_Parent.Add(m_Header, 0, 1);
+                }
             }
         }
 
@@ -319,10 +358,12 @@ namespace Maui.TabView.Control
         public void UpdatePageSelection(MauiTabPage page)
         {
             page.Header.Selector.BackgroundColor = SelectionColor;
+            page.Header.BackgroundColor = HeaderSelectionBgColor;
             if (page.Header.Content is Label label)
             {
                 label.TextColor = SelectionColor;
             }
+            page.Header.IsSelected = true;
         }
 
         /// <summary>
@@ -333,6 +374,8 @@ namespace Maui.TabView.Control
         {
             if (SelectedPage != null)
             {
+                SelectedPage.Header.IsSelected = false;
+                SelectedPage.Header.BackgroundColor = HeaderColor;
                 SelectedPage.Header.Selector.BackgroundColor = HeaderColor;
                 if (SelectedPage.Header.Content is Label label1)
                 {

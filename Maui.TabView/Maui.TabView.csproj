@@ -27,6 +27,7 @@
 		<PackageTags>MAUI,Tabview,tabbedpage,control</PackageTags>
 		<PackageReleaseNotes>Create the Customized tabbed page or view using Maui.Tabview control.</PackageReleaseNotes>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>

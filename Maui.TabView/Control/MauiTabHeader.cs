@@ -13,6 +13,7 @@
         /// Header Tab Page
         /// </summary>
         internal MauiTabPage XFParentTabPage;
+        private bool _isSelected;
 
         #endregion
 
@@ -25,7 +26,12 @@
         {
             Padding = 0;
             Margin = 0;
+            StrokeThickness = 0;
         }
+
+        public static readonly BindableProperty IsSelectedProperty =
+       BindableProperty.Create(nameof(IsSelected), typeof(bool), typeof(MauiTabHeader), false);
+
 
         #endregion
 
@@ -47,6 +53,15 @@
                 };
                 Content = HeaderLabel;
             }
+        }
+
+        /// <summary>
+        /// IsSelected
+        /// </summary>
+        public bool IsSelected
+        {
+            get => (bool)GetValue(IsSelectedProperty);
+            set => SetValue(IsSelectedProperty, value);
         }
 
         /// <summary>
